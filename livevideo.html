@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<title> Live video demo </title>
+		<link rel="stylesheet" href="css/main.css"> </link>
+	</head>
+	<body>
+<!--------------------------------------- premiere rangée  webcam interne ou USB -->
+<div class="both">
+<table border=5>
+ <tr><td ><video id="video_webcam" width="300" height="200" autoplay></video> </td> <td class='canvas'> <canvas id="canvas_webcam" width="300" height="200"> </td></tr>
+ <tr><td align=center>image provenant de la webcam</td> <td align=center> webcam avec filtre sepia </td></tr>
+</table  ></div>
+
+<br /> 
+
+<!--------------------------------------- seconde rangée  lecture a distance video (VOD) dans un canvas  -->
+<div class="both">
+<table border=5>
+
+ <tr><td ><canvas id=canvas_video_uad><video id="video_uad"  poster='images/poster.jpg' controls autoplay allowscreen preload="true" width="300" height="200" autoplay></video></canvas> </td> <td class='canvas'> <canvas id="canvas_uad" width="300" height="200"> </td></tr>
+ <tr><td align=center>video uad provenant du serveur</td> <td align=center> video uad avec filtre sepia </td></tr>
+</table  ></div>
+
+<br /> <!--------------------------------------- troisieme rangée     images  a gauche distante , a droite locale-->	
+<div class="both">
+  <table border=5>
+ <tr><td >  <canvas id="image_distante" width="300" height="200"></td><td><canvas id="image_locale" width="300" height="200">   </td>  		
+ <tr><td align=center>image provenant du serveur avec chargement immediat</td> <td align=center> image interne chargement apres acceptation webcam</td></tr>
+ </table></div>
+		<script src="js/video.js"> </script>
+</html>
+                   
