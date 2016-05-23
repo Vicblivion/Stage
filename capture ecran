@@ -1,0 +1,19 @@
+
+voici quelques exemples et liens 
+
+
+http://dranger.com/ffmpeg/                             super tutorial
+
+http://betterlogic.com/roger/2010/07/list-of-available-directshow-screen-capture-filters/
+https://trac.ffmpeg.org/wiki/Create%20a%20video%20slideshow%20from%20images
+
+::http://sourceforge.net/projects/screencapturer/postdownload?source=dlp
+::ffmpeg -list_devices true -f dshow -i dummy
+
+::mp4
+::ffmpeg -rtbufsize 1500M -f dshow -i video="screen-capture-recorder":audio="Microphone (Realtek High Definition Audio)" -vcodec libx264 -b:v 400k -r:v 25 -draw_mouse 1  -pix_fmt yuv420p -acodec aac -strict -2 -ar 44100 -ab 64k -y c:\streaming\encodage_UaD\travail\toto.mp4
+::avi
+ffmpeg -rtbufsize 1500M -f dshow -i video="screen-capture-recorder":audio="Microphone (Realtek High Definition Audio)" -vcodec libx264 -b:v 400k -r:v 25 -draw_mouse 1  -pix_fmt yuv420p -acodec libmp3lame -ar 44100 -ab 64k -y c:\streaming\encodage_UaD\travail\toto.avi
+:: webcam 
+
+::ffmpeg -t 00:02:00 -f dshow -i "HD WebCam" -y rep toto.flv
