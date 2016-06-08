@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2016 by Vicblivion (http://jsbin.com/yaxako/20/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+<style id="jsbin-css">
+#ecran{
+  display:flex;
+  justify-content:space-between;
+  margin-top:3%;
+  margin-left:3%;
+  margin-right:3%;
+  padding:2%;
+}
+
+video, #vd, #lecteur, #barre{ 
+  border:solid;
+}
+
+#barre{
+  height:30px;
+  border-radius:10px;
+  margin-top:1%;
+  margin-bottom:3%;
+  margin-left:3%;
+  margin-right:3%;
+  text-align:center;
+}
+
+#resize{
+  width:480px;
+  height:360px;
+}
+</style>
+</head>
+<body>
+  <div id="lecteur">
+    <div id="ecran">
+      <div id="resize">
+        <video id="vd" autoplay="true" style="height: 100%; width: 100%;"></video>
+      </div>
+      <video id="vc" autoplay="true" style="width:240px;height:180px;"></video>
+    </div>
+    <div id="barre">
+      <span>Titre : C'est cool</span>
+    </div>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script id="jsbin-javascript">
+(function(){
+  var mediaOptions = { audio: true, video: true };
+
+  if (!navigator.getUserMedia) {
+      navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+  }
+
+  if (!navigator.getUserMedia){
+    return alert("getUserMedia n'est pas supporté par ce navigateur.");
+  }
+
+  navigator.getUserMedia(mediaOptions, success, function(e) {
+    console.log(e);
+  });
+
+  function success(stream){
+    var video = document.querySelector("#vc");
+    video.src = window.URL.createObjectURL(stream);
+    video = document.querySelector("#vd");
+    video.src = window.URL.createObjectURL(stream);
+  }
+})();
+
+$(function() {
+  $("#resize").resizable();
+});
+</script>
+</body>
+</html>
